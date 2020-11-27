@@ -16,4 +16,6 @@ WORKDIR /opt
 
 COPY --from=BUILD /opt/app/target/*.jar app.jar
 
+EXPOSE 8080
+
 CMD ["java", "-jar", "app.jar"]
