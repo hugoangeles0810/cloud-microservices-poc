@@ -277,3 +277,54 @@ spec:
     nodePort: 30008
   selector:
     app: usuario
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: microservice-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /couriers-service
+        pathType: Prefix
+        backend:
+          serviceName: couriers-service
+          servicePort: 30001
+      - path: /cuponing-service
+        pathType: Prefix
+        backend:
+          serviceName: cuponing-service
+          servicePort: 30002
+      - path: /empresa-service
+        pathType: Prefix
+        backend:
+          serviceName: empresa-service
+          servicePort: 30003
+      - path: /pagos-service
+        pathType: Prefix
+        backend:
+          serviceName: pagos-service
+          servicePort: 30004
+      - path: /pedidos-service
+        pathType: Prefix
+        backend:
+          serviceName: pedidos-service
+          servicePort: 30005
+      - path: /seguridad-service
+        pathType: Prefix
+        backend:
+          serviceName: seguridad-service
+          servicePort: 30006
+      - path: /tracking-service
+        pathType: Prefix
+        backend:
+          serviceName: tracking-service
+          servicePort: 30007
+      - path: /usuario-service
+        pathType: Prefix
+        backend:
+          serviceName: usuario-service
+          servicePort: 30008

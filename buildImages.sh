@@ -29,3 +29,7 @@ docker push hugoangeles0810/cloud-microservices-poc-tracking
 # Usuario
 docker build -t hugoangeles0810/cloud-microservices-poc-usuario usuario/
 docker push hugoangeles0810/cloud-microservices-poc-usuario
+
+# Usuario
+docker build -t hugoangeles0810/cloud-microservices-poc-apigateway apigateway/
+docker push hugoangeles0810/cloud-microservices-poc-apigateway
