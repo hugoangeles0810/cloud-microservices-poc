@@ -1,6 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: couriers-deployment
+  labels:
+    app: couriers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: couriers
+  template:
+    metadata:
+      labels:
+        app: couriers
+    spec:
+      containers:
+      - name: couriers
+        image: hugoangeles0810/cloud-microservices-poc-couriers:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: couriers-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30001
+  selector:
+    app: couriers
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: cuponing-deployment
   labels:
     app: cuponing
@@ -32,3 +67,213 @@ spec:
     nodePort: 30002
   selector:
     app: cuponing
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: empresa-deployment
+  labels:
+    app: empresa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: empresa
+  template:
+    metadata:
+      labels:
+        app: empresa
+    spec:
+      containers:
+      - name: empresa
+        image: hugoangeles0810/cloud-microservices-poc-empresa:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: empresa-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30003
+  selector:
+    app: empresa
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pagos-deployment
+  labels:
+    app: pagos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pagos
+  template:
+    metadata:
+      labels:
+        app: pagos
+    spec:
+      containers:
+      - name: pagos
+        image: hugoangeles0810/cloud-microservices-poc-pagos:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pagos-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30004
+  selector:
+    app: pagos
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pedidos-deployment
+  labels:
+    app: pedidos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pedidos
+  template:
+    metadata:
+      labels:
+        app: pedidos
+    spec:
+      containers:
+      - name: pedidos
+        image: hugoangeles0810/cloud-microservices-poc-pedidos:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pedidos-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30005
+  selector:
+    app: pedidos
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seguridad-deployment
+  labels:
+    app: seguridad
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seguridad
+  template:
+    metadata:
+      labels:
+        app: seguridad
+    spec:
+      containers:
+      - name: seguridad
+        image: hugoangeles0810/cloud-microservices-poc-seguridad:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: seguridad-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30006
+  selector:
+    app: seguridad
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracking-deployment
+  labels:
+    app: tracking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tracking
+  template:
+    metadata:
+      labels:
+        app: tracking
+    spec:
+      containers:
+      - name: tracking
+        image: hugoangeles0810/cloud-microservices-poc-tracking:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tracking-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30007
+  selector:
+    app: tracking
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usuario-deployment
+  labels:
+    app: usuario
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usuario
+  template:
+    metadata:
+      labels:
+        app: usuario
+    spec:
+      containers:
+      - name: usuario
+        image: hugoangeles0810/cloud-microservices-poc-usuario:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: usuario-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    nodePort: 30008
+  selector:
+    app: usuario
