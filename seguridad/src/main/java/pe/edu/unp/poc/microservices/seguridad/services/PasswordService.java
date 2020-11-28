@@ -18,7 +18,7 @@ public class PasswordService {
 
 	private Password pass1 = new Password("123456", new User("u1", "Admin", "admin@admin.com"));
 	private Password pass2 = new Password("abcdef", new User("u2", "beta", "admin@admin.com"));
-	
+
 	private List<Password> passwords = new ArrayList<>(Arrays.asList(pass1, pass2));
 
 	@Autowired
@@ -28,7 +28,7 @@ public class PasswordService {
 	private Properties props;
 
 	public User logIn(LogInRequest request) {
-		User user = usuarioRest.getForObject(this.props.getWsUsuarioConsulta(), User.class);
+		User user = usuarioRest.getForObject(this.props.getWsUsuarioConsulta(request.getUsername()), User.class);
 		Password pass = passwords.stream().filter(p -> user.equals(user)).findFirst().orElse(null);
 		return pass != null ? user : null;
 	}

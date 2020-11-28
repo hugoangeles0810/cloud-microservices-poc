@@ -9,8 +9,8 @@ public class Properties {
 	@Value("${web.usuario.consulta}")
 	private String wsUsuarioConsulta;
 
-	public String getWsUsuarioConsulta() {
-		return wsUsuarioConsulta;
+	public String getWsUsuarioConsulta(String username) {
+		return String.format(wsUsuarioConsulta, username);
 	}
 
 }
