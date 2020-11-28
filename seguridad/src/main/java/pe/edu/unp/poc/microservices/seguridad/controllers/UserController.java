@@ -1,19 +1,11 @@
 package pe.edu.unp.poc.microservices.seguridad.controllers;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import pe.edu.unp.poc.microservices.seguridad.models.Password;
+import org.springframework.web.bind.annotation.*;
 import pe.edu.unp.poc.microservices.seguridad.models.User;
 import pe.edu.unp.poc.microservices.seguridad.services.UserService;
+
+import java.util.List;
 
 @RestController
 public class UserController {
